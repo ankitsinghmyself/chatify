@@ -7,7 +7,7 @@ import Image from "next/image";
 import { Button } from "@mui/material";
 import GppGoodIcon from "@mui/icons-material/GppGood";
 import Cookies from 'js-cookie';
-const login = () => {
+const Login = () => {
   const router = useRouter();
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const login = () => {
       if (user) {
         Cookies.set('userName',  user.displayName.trim());
         Cookies.set('userEmail', user.email);
-        router.push("/homePage");
+        router.push("/home");
       }
     });
     return () => unsubscribe();
@@ -31,7 +31,7 @@ const login = () => {
         if (user) {
           Cookies.set('userName',  user.displayName.trim());
           Cookies.set('userEmail', user.email);
-          router.push("/homePage");
+          router.push("/home");
         }
       });
       return () => unsubscribe();
@@ -95,4 +95,4 @@ const login = () => {
   );
 };
 
-export default login;
+export default Login;

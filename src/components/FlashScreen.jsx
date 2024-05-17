@@ -12,9 +12,9 @@ export default function FlashScreen() {
 
   const handleLetsGoBtn = () => {
     if (isLogin) {
-      router.push("/homePage");
+      router.push("/home");
     } else {
-      router.push("/auth/login");
+      router.push("/login");
     }
     setIsLoading(true);
   };

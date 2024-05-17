@@ -1,8 +1,8 @@
 "use client";
-import styles from "./page.module.css";
+import styles from "../page.module.css";
 import { io } from "socket.io-client";
 import { useState, useEffect } from "react";
-import ChatPage from "./ChatPage";
+import ChatPage from "../ChatPage";
 import app from "@/firebase/config";
 import { useRouter } from "next/router";
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
@@ -11,7 +11,7 @@ import { Button } from "@mui/material";
 import GppGoodIcon from "@mui/icons-material/GppGood";
 import Cookies from "js-cookie";
 
-export default function homePage() {
+export default function HomePage() {
   const router = useRouter();
 
   const [showChat, setShowChat] = useState(false);
@@ -42,9 +42,9 @@ export default function homePage() {
       if (user) {
         setUserName(user.displayName.trim());
         // Cookies.set("userEmail", user.email);
-        router.push("/homePage");
+        router.push("/home");
       } else {
-        router.push("/auth/login");
+        router.push("/login");
       }
     });
     return () => unsubscribe();
