@@ -23,21 +23,24 @@ const Login = () => {
   }, []);
 
   const signInWithGoogle = async () => {
-    const auth = getAuth(app);
-    const provider = new GoogleAuthProvider();
-    try {
-      await signInWithPopup(auth, provider);
-      const unsubscribe = auth.onAuthStateChanged((user) => {
-        if (user) {
-          Cookies.set('userName',  user.displayName.trim());
-          Cookies.set('userEmail', user.email);
-          router.push("/home");
-        }
-      });
-      return () => unsubscribe();
-    } catch (error) {
-      console.log("Error signing with Google", error);
-    }
+    //uncomment when using firebase
+    // const auth = getAuth(app);
+    // const provider = new GoogleAuthProvider();
+    // try {
+    //   await signInWithPopup(auth, provider);
+    //   const unsubscribe = auth.onAuthStateChanged((user) => {
+    //     if (user) {
+    //       Cookies.set('userName',  user.displayName.trim());
+    //       Cookies.set('userEmail', user.email);
+    //       router.push("/home");
+    //     }
+    //   });
+    //   return () => unsubscribe();
+    // } catch (error) {
+    //   console.log("Error signing with Google", error);
+    // }
+    Cookies.set('userName',  'Ankit Singh');
+    router.push("/home");
   };
   return (
     <>

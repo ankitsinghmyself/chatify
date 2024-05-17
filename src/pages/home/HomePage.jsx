@@ -20,7 +20,7 @@ export default function HomePage() {
   const [roomId, setroomId] = useState("");
 
   var socket;
-  socket = io("http://localhost:3001");
+  socket = io(process.env.SERVER_URL);
 
   const handleJoin = () => {
     if (userName !== "" && roomId !== "") {
@@ -36,19 +36,20 @@ export default function HomePage() {
       alert("Please fill in Username and Room Id");
     }
   };
-  useEffect(() => {
-    const auth = getAuth(app);
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (user) {
-        setUserName(user.displayName.trim());
-        // Cookies.set("userEmail", user.email);
-        router.push("/home");
-      } else {
-        router.push("/login");
-      }
-    });
-    return () => unsubscribe();
-  }, []);
+  //uncomment when using firebase
+  // useEffect(() => {
+  //   const auth = getAuth(app);
+  //   const unsubscribe = auth.onAuthStateChanged((user) => {
+  //     if (user) {
+  //       setUserName(user.displayName.trim());
+  //       // Cookies.set("userEmail", user.email);
+  //       router.push("/home");
+  //     } else {
+  //       router.push("/login");
+  //     }
+  //   });
+  //   return () => unsubscribe();
+  // }, []);
   return (
     <div>
       <div style={{

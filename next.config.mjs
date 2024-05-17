@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   env: {
     BASE_URL: process.env.BASE_URL,
-
+    SERVER_URL: process.env.SERVER_URL,
     // firebase config
     NEXT_PUBLIC_FIREBASE_API_KEY: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
     NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN:
